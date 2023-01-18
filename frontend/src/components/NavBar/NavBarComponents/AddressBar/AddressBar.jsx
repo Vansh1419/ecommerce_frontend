@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { KeyboardArrowDown } from "@mui/icons-material";
-import Navbar_dropdown from "../navbar_dropdown/navbar_dropdown.component";
+import Dropdown from "../../../common/Dropdown/Dropdown";
 
-const Navbar_addressBox = () => {
+const AddressBox = () => {
   return (
     <div>
       <Grid
@@ -31,7 +31,7 @@ const Navbar_addressBox = () => {
           <Typography variant="p">Delivery at</Typography>
         </Grid>
         <Grid item xs={7} sm={9} xl={12}>
-          <Navbar_dropdown
+          <Dropdown
             info={{
               option_name: "Current address",
               option_icon: <KeyboardArrowDown />,
@@ -50,4 +50,4 @@ const Navbar_addressBox = () => {
   );
 };
 
-export default Navbar_addressBox;
+export default AddressBox;
