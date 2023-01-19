@@ -1,7 +1,4 @@
-export const positioning = () => ({
-  justifyContent: "center",
-  alignItems: "center",
-});
+
 export const coloring = () => ({
   "&:hover": {
     backgroundColor: "#f5f5f5",

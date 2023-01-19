@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import Dropdown from "../../../common/Dropdown/Dropdown";
 
-const AddressBox = () => {
+const AddressBar = () => {
   return (
     <div>
       <Grid
@@ -50,4 +50,4 @@ const AddressBox = () => {
   );
 };
 
-export default AddressBox;
+export default AddressBar;
