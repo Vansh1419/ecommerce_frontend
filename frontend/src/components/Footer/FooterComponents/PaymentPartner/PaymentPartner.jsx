@@ -12,7 +12,7 @@ const PaymentPartner = () => {
       </Typography>
       <Box
         sx={{
-          ...wrappingThroughFlex()
+          ...wrappingThroughFlex(),
         }}
       >
         {datas.map((data, index) => {

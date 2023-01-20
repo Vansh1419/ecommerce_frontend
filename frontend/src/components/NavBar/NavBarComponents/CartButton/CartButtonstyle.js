@@ -1,5 +1,4 @@
 export const cartContainerStyle = () => ({
-  mx: "auto",
   height: {
     xs: "70px",
     md: "100%",
@@ -8,6 +7,9 @@ export const cartContainerStyle = () => ({
     xs: "100%",
     md: "initial",
   },
+});
+export const cartButtonStyle = () => ({
+  textTransform: "capitalize",
   position: {
     xs: "fixed",
     md: "initial",
@@ -18,9 +20,7 @@ export const cartContainerStyle = () => ({
     xs: "10px",
     md: "initial",
   },
-});
-export const cartButtonStyle = () => ({
-  textTransform: "capitalize",
+  mx: "auto",
   width: "90%",
   backgroundColor: "#0c831f",
   color: "#fff",

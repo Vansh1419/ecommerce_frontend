@@ -1,4 +1,4 @@
 export const wrappingThroughFlex = () => ({
-    display: "flex",
-    flexWrap: "wrap",
+  display: "flex",
+  flexWrap: "wrap",
 });

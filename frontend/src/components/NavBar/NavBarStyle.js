@@ -6,6 +6,6 @@ export const navStyle = () => ({
   borderBottom: 1,
   top: 0,
   height: 86,
+  zIndex: 100,
   background: "rgba(255, 255, 255)",
-  // backdropFilter: "blur(15px)",
 });
