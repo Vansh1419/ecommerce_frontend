@@ -5,12 +5,13 @@ import logo from "../../../../assets/static/logo.png";
 
 // * importing styles
 import {
-  positioning,
   coloring,
   cursor,
   logoMediaQueries,
   logoDimensions,
 } from "./Logostyle";
+
+import { positioningCentreWithFlex } from "../../../common/styles/PositioningStyles";
 
 import { Box } from "@mui/material";
 
@@ -20,7 +21,7 @@ const Logo = () => {
       <Box
         className="logo__container"
         sx={{
-          ...positioning(),
+          ...positioningCentreWithFlex(),
           ...coloring(),
           ...cursor(),
           ...logoMediaQueries(),

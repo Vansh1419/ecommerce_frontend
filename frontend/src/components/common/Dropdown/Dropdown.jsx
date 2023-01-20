@@ -1,5 +1,10 @@
 import React from "react";
 import { Button, Menu, Box, MenuItem, Typography, Icon } from "@mui/material";
+import {
+  dropdownButton,
+  dropdownButtonTypographyBox,
+  dropdownButtonTypography,
+} from "./DropdownStyle";
 
 const Dropdown = ({ info }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -10,9 +15,8 @@ const Dropdown = ({ info }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  let i = 0;
   return (
-    <Box sx={{ color: "black" }}>
+    <Box sx={{ color: "black", ml: 1 }}>
       <Button
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
@@ -20,28 +24,19 @@ const Dropdown = ({ info }) => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         sx={{
-          color: "black",
-          height: info.height ? "85px" : "40%",
-          width: "100%",
-          "&:hover": {
-            backgroundColor: "rgba(0, 0, 0, 0.1)",
-          },
+          ...dropdownButton(info.height),
         }}
       >
         <Box
           sx={{
-            display: "flex",
-            width: "100%",
-            justifyContent: info.option_name ? "space-around" : "center",
+            ...dropdownButtonTypographyBox(info.option_name),
           }}
         >
           <Typography
             variant="p"
             pl={0}
             sx={{
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-              whiteSpace: "nowrap",
+              ...dropdownButtonTypography(),
             }}
           >
             {info.option_name}
@@ -57,19 +52,10 @@ const Dropdown = ({ info }) => {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
-        sx={{
-          minWidth: "0px",
-        }}
       >
-        {info.options.map((option) => {
+        {info.options.map((option, index) => {
           return (
-            <MenuItem
-              key={i++}
-              onClick={handleClose}
-              sx={{
-                maxWidth: "300px",
-              }}
-            >
+            <MenuItem key={index} onClick={handleClose}>
               {option}
             </MenuItem>
           );
