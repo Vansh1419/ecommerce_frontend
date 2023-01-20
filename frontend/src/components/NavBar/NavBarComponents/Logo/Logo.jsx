@@ -14,10 +14,11 @@ import {
 import { positioningCentreWithFlex } from "../../../common/styles/PositioningStyles";
 
 import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <div>
+    <Link to="/">
       <Box
         className="logo__container"
         sx={{
@@ -30,7 +31,7 @@ const Logo = () => {
       >
         <img src={logo} alt="" className="logo" height={60} />
       </Box>
-    </div>
+    </Link>
   );
 };
 
