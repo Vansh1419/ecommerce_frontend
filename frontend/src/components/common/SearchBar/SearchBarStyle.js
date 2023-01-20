@@ -14,6 +14,7 @@ export const searchBarInput = () => ({
   border: 1,
   borderBottom: 0,
   px: 1,
+  backgroundColor: "white",
   width: "100%",
   textOverflow: "ellipsis",
   overflow: "hidden",

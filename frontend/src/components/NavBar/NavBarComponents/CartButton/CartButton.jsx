@@ -17,7 +17,7 @@ const CartButton = () => {
           ...positioningCentreWithFlex(),
           ...cartContainerStyle(),
         }}
-      >
+        >
         <Button
           sx={{
             ...cartButtonStyle(),

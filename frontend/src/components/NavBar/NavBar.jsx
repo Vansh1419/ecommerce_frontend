@@ -1,8 +1,6 @@
 import { Grid, Box } from "@mui/material";
-import { KeyboardArrowDown, PersonOutlineOutlined } from "@mui/icons-material";
 import AddressBar from "./NavBarComponents/AddressBar/AddressBar";
 import SearchBar from "../common/SearchBar/SearchBar";
-import Dropdown from "../common/Dropdown/Dropdown";
 import Logo from "./NavBarComponents/Logo/Logo";
 import { positioningCentreWithFlex } from "../common/styles/PositioningStyles";
 import { navStyle } from "./NavBarStyle";
@@ -17,7 +15,6 @@ const Navbar = () => {
           ...navStyle(),
         }}
       >
-
         {/* Logo Section */}
         <Logo />
 
@@ -43,7 +40,6 @@ const Navbar = () => {
 
         {/* Cart Section */}
         <CartButton />
-
       </Box>
     </div>
   );
