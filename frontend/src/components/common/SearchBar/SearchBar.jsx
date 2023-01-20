@@ -2,7 +2,7 @@ import { Box, Input } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import React from "react";
 
-const Navbar_SearchBox = () => {
+const SearchBox = () => {
   return (
     <div>
       <Box
@@ -39,4 +39,4 @@ const Navbar_SearchBox = () => {
   );
 };
 
-export default Navbar_SearchBox;
+export default SearchBox;

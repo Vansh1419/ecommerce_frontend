@@ -1,26 +1,17 @@
 import { useState } from "react";
-import {
-  Button,
-  Container,
-  Input,
-  Menu,
-  MenuItem,
-  Typography,
-  Grid,
-  Icon,
-} from "@mui/material";
+import { Button, Typography, Grid, Icon } from "@mui/material";
 import { Box } from "@mui/system";
 import logo from "../../assets/static/logo.png";
-import Navbar_dropdown from "./navbar-components/navbar_dropdown/navbar_dropdown.component";
 import {
   ArrowRight,
   KeyboardArrowDown,
   PersonOutlineOutlined,
-  Search,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
-import Navbar_SearchBox from "./navbar-components/navbar_search/navbar_search.component";
-import Navbar_addressBox from "./navbar-components/navbar_address/navbar_address.component";
+import AddressBox from "./NavBarComponents/AddressBar/AddressBar";
+import SearchBox from "../common/SearchBar/SearchBar";
+import Dropdown from "../common/Dropdown/Dropdown";
+import Logo from "./NavBarComponents/Logo/Logo";
 
 const Navbar = () => {
   return (
@@ -36,27 +27,7 @@ const Navbar = () => {
         }}
       >
         {/* Logo Section */}
-        <Box
-          className="logo__container"
-          sx={{
-            display: {
-              xs: "none",
-              sm: "flex",
-            },
-            width: 176,
-            borderRight: 1,
-            // display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            mixBlendMode: "multiply",
-            "&:hover": {
-              backgroundColor: "#f5f5f5",
-            },
-          }}
-        >
-          <img src={logo} alt="" className="logo" height={60} />
-        </Box>
+        <Logo/>
         <Grid
           container
           sx={{
@@ -67,11 +38,11 @@ const Navbar = () => {
           }}
         >
           <Grid item xs={12} xl={3}>
-            <Navbar_addressBox />
+            <AddressBox />
           </Grid>
 
           <Grid item xs={12} xl={9}>
-            <Navbar_SearchBox />
+            <SearchBox />
           </Grid>
         </Grid>
 
@@ -85,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          <Navbar_dropdown
+          <Dropdown
             info={{
               option_name: "Account",
               option_icon: <KeyboardArrowDown />,
@@ -104,7 +75,7 @@ const Navbar = () => {
             },
           }}
         >
-          <Navbar_dropdown
+          <Dropdown
             info={{
               option_name: "",
               option_icon: <PersonOutlineOutlined />,

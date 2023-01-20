@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Menu, Box, MenuItem, Typography, Icon } from "@mui/material";
 
-const Navbar_dropdown = ({ info }) => {
+const Dropdown = ({ info }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -79,4 +79,4 @@ const Navbar_dropdown = ({ info }) => {
   );
 };
 
-export default Navbar_dropdown;
+export default Dropdown;
