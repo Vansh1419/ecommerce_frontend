@@ -1,10 +1,5 @@
 import React from "react";
-import { Button, Menu, Box, MenuItem, Typography, Icon } from "@mui/material";
-import {
-  dropdownButton,
-  dropdownButtonTypographyBox,
-  dropdownButtonTypography,
-} from "./DropdownStyle";
+import { Button, Menu, Box, MenuItem, Typography } from "@mui/material";
 
 const Dropdown = ({ info }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,43 +11,12 @@ const Dropdown = ({ info }) => {
     setAnchorEl(null);
   };
   return (
-    <Box sx={{ color: "black", ml: 1 }}>
-      <Button
-        id="basic-button"
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-        sx={{
-          ...dropdownButton(info.height),
-        }}
-      >
-        <Box
-          sx={{
-            ...dropdownButtonTypographyBox(info.option_name),
-          }}
-        >
-          <Typography
-            variant="p"
-            pl={0}
-            sx={{
-              ...dropdownButtonTypography(),
-            }}
-          >
-            {info.option_name}
-          </Typography>
-          <Icon sx={{}}>{info.option_icon}</Icon>
-        </Box>
+    <Box sx={{ color: "black" }}>
+      <Button disableRipple onClick={handleClick}>
+        <Typography whiteSpace="nowrap" textTransform="capitalize" variant="subtitle2">{info.option_name}</Typography>
+        {info.option_icon}
       </Button>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-      >
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         {info.options.map((option, index) => {
           return (
             <MenuItem key={index} onClick={handleClose}>
