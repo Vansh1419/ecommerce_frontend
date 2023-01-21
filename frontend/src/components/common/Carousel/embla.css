@@ -1,25 +1,21 @@
-
-
-
 .embla {
   position: relative;
   --slide-spacing: 1rem;
   --slide-size: 100%;
   --slide-height: calc(100vh - 85px);
+  overflow: hidden;
 }
 @media screen and (max-width: 900px) {
-    .embla {
-      --slide-height: calc(70vh - 85px);
-    }
+  .embla {
+    --slide-height: calc(70vh - 85px);
   }
-  
+}
 
 @media screen and (max-width: 600px) {
   .embla {
     --slide-height: calc(50vh - 85px);
   }
 }
-
 
 .embla__container {
   display: flex;

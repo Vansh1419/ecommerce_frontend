@@ -1,15 +1,16 @@
 import React from 'react'
-import { Box } from '@mui/material'
+import { Box,Stack } from '@mui/material'
 import { KeyboardArrowDown, PersonOutlineOutlined } from '@mui/icons-material'
 import Dropdown from '../../../common/Dropdown/Dropdown'
 import { accoutForLargerScreens, accoutForSmallerScreens } from './AccountSectionStyle'
-const AccountSection = () => {
+const AccountSection = ({disableAccount}) => {
   return (
-    <div>
+    <Stack style={{display:disableAccount?"none":"flex"}} justifyContent="center">
         {/* Account Section for large screen */}
         <Box
           sx={{
             ...accoutForLargerScreens(),
+            
           }}
         >
           <Dropdown
@@ -36,7 +37,7 @@ const AccountSection = () => {
             }}
           />
         </Box>
-    </div>
+    </Stack>
   )
 }
 
