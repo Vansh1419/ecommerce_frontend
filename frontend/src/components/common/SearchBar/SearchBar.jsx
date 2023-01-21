@@ -1,26 +1,23 @@
-import { Box, Input } from "@mui/material";
+import { Box, Input, TextField, InputAdornment } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import React from "react";
-import { searchBarBox, searchBarInput } from "./SearchBarStyle";
+import { searchBarBox } from "./SearchBarStyle";
 
 const SearchBar = () => {
   return (
-    <div>
-      <Box
-        sx={{
-          ...searchBarBox(),
-        }}
-      >
-        <Input
-          className="search__container"
-          startAdornment={<Search />}
-          placeholder={`Search for products, brands and more`}
-          sx={{
-            ...searchBarInput(),
-          }}
-        />
-      </Box>
-    </div>
+    <TextField
+      size="small"
+      className="search__container"
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <Search />
+          </InputAdornment>
+        ),
+      }}
+      placeholder={`Search for products, brands and more`}
+      fullWidth
+    />
   );
 };
 
