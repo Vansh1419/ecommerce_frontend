@@ -1,11 +1,16 @@
-import { Box, Input, TextField, InputAdornment } from "@mui/material";
+import { TextField, InputAdornment } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import React from "react";
-import { searchBarBox } from "./SearchBarStyle";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
+  const navigate = useNavigate()
+  const handleFocus = (e)=>{
+    navigate("/search")
+  }
   return (
     <TextField
+      onFocus={handleFocus}
       size="small"
       className="search__container"
       InputProps={{
