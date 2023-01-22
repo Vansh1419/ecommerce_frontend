@@ -6,7 +6,7 @@ import { navStyle } from "./NavBarStyle";
 import CartButton from "./NavBarComponents/CartButton/CartButton";
 import AccountSection from "./NavBarComponents/AccountSection/AccountSection";
 
-const Navbar = () => {
+const Navbar = ({disableAddress, disableAccount,disableForSearchPage}) => {
   return (
     <Box
       sx={{
@@ -17,8 +17,8 @@ const Navbar = () => {
       <Logo />
 
       {/* Address and Search Bar Section */}
-      <Grid container alignItems="center" paddingLeft={3}>
-        <Grid item xs={12} xl={3}>
+      <Grid container alignItems="center" paddingX={2} justifyContent="center">
+        <Grid item xs={12} xl={3} display={disableAddress?"none":"unset"}>
           <AddressBar />
         </Grid>
 
@@ -28,10 +28,10 @@ const Navbar = () => {
       </Grid>
 
       {/* Account Section */}
-      <AccountSection />
+      <AccountSection disableAccount={disableAccount} />
 
       {/* Cart Section */}
-      <CartButton />
+      <CartButton disableForSearchPage={disableForSearchPage}  />
     </Box>
   );
 };

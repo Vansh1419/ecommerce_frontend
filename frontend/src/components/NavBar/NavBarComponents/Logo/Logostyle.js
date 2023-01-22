@@ -9,8 +9,8 @@ export const cursor = () => ({
 });
 export const logoMediaQueries = () => ({
   display: {
-    xs: "none",
-    sm: "flex",
+    xs:"none",
+    md:"flex"
   },
 });
 export const logoDimensions = () => ({

@@ -9,18 +9,19 @@ import {
   iconLargerScreen,
 } from "./CartButtonstyle";
 
-const CartButton = () => {
+const CartButton = ({disableForSearchPage}) => {
   return (
     <div>
       <Box
         sx={{
           ...positioningCentreWithFlex(),
-          ...cartContainerStyle(),
+          ...cartContainerStyle(disableForSearchPage)
         }}
         >
         <Button
           sx={{
-            ...cartButtonStyle(),
+            ...cartButtonStyle(disableForSearchPage),
+            
           }}
         >
           <Icon
