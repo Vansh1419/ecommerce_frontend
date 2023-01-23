@@ -8,7 +8,11 @@ export const cartContainerStyle = () => ({
     md: "initial",
   },
 });
-export const cartButtonStyle = () => ({
+export const cartButtonStyle = (disableForSearchPage) => ({
+  display:{
+    xs:disableForSearchPage?"none":"flex",
+    md:"flex"
+  },
   textTransform: "capitalize",
   position: {
     xs: "fixed",
@@ -25,7 +29,6 @@ export const cartButtonStyle = () => ({
   backgroundColor: "#0c831f",
   color: "#fff",
   justifyContent: "space-between",
-  display: "flex",
   px: 2,
   borderRadius: 2,
   "&:hover": {

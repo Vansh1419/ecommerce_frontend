@@ -11,7 +11,7 @@ import {
 } from "./EmblaCarouselArrowsDotsButtons";
 
 const Carousel = ({ slides,options }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options,[Autoplay()]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(options,[Autoplay({delay:4000})]);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);

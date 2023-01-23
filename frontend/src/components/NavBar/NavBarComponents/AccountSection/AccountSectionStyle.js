@@ -6,7 +6,6 @@ export const accoutForLargerScreens = () => ({
     },
   });
   export const accoutForSmallerScreens = () => ({
-    mx: 2,
     display: {
       xs: "block",
       md: "none",

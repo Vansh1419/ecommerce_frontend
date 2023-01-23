@@ -1,7 +1,5 @@
 import React from "react";
 import { Box, Container } from "@mui/material";
-import Navbar from "../../components/NavBar/NavBar";
-import Footer from "../../components/Footer/Footer";
 import Carousel from "../../components/common/Carousel/Carousel";
 
 const images = [
@@ -14,7 +12,7 @@ const images = [
 function Home() {
   return (
     <Box>
-      <Carousel slides={images} options={{loop:true}} />
+      <Carousel slides={images} options={{ loop: true, draggable: true }} />
       <Container maxWidth="xl"></Container>
     </Box>
   );

@@ -1,20 +1,21 @@
 import "./App.css";
 import { Box } from "@mui/material";
 import Home from "./pages/Home/Home";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
+import { Routes, Route, Navigate } from "react-router-dom";
 import BasicLayout from "./pages/BasicLayout";
 import Search from "./pages/Search/Search";
+import Error from "./pages/Error/Error";
 
 function App() {
   return (
-    <Box className="App" paddingTop={11}>
+    <Box className="App" position="absolute" top="85px">
       <Routes>
-        <Route element={<BasicLayout />} path="/">
+        <Route path="/" element={<BasicLayout />}>
           <Route index element={<Home />} />
+          <Route path="search" element={<Search />} />
         </Route>
-        <Route path="/search" element={<Search />} />
+        <Route path="not-found" element={<Error />} />
+        <Route path="*" element={<Navigate to="/not-found" replace/>} />
       </Routes>
     </Box>
   );

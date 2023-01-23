@@ -1,12 +1,18 @@
 import React from "react";
-import { Typography,Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import Dropdown from "../../../common/Dropdown/Dropdown";
 
 const AddressBar = () => {
   return (
-    <Box display="flex" alignItems="center" flexGrow={1} justifyContent="center">
-      <Typography whiteSpace="nowrap" variant="subtitle2">Delivery at</Typography>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Typography whiteSpace="nowrap" variant="subtitle2">
+        Delivery at
+      </Typography>
       <Dropdown
         info={{
           option_name: "Current Address",
