@@ -8,7 +8,11 @@ function BasicLayout() {
     { pathName: "/", props: {} },
     {
       pathName: "/search",
-      props: { disableAddress: true, disableAccount: true, disableForSearchPage: true },
+      props: {
+        disableAddress: true,
+        disableAccount: true,
+        disableForSearchPage: true,
+      },
     },
   ];
   const footerNavigationPaths = [{ pathName: "/", props: {} }];
