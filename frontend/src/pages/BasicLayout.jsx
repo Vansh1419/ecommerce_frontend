@@ -8,10 +8,32 @@ function BasicLayout() {
     { pathName: "/", props: {} },
     {
       pathName: "/search",
-      props: { disableAddress: true, disableAccount: true, disableForSearchPage: true },
+      props: {
+        disableAddress: true,
+        disableAccount: true,
+        disableForSearchPage: true,
+      },
+    },
+    {
+      pathName: "/product",
+      props: {},
+    },
+    {
+      pathName: "/orders",
+      props: {},
     },
   ];
-  const footerNavigationPaths = [{ pathName: "/", props: {} }];
+  const footerNavigationPaths = [
+    { pathName: "/", props: {} },
+    {
+      pathName: "/product",
+      props: {},
+    },
+    {
+      pathName: "/orders",
+      props: {},
+    },
+  ];
 
   const filterPath = (paths, Component) => {
     const filteredPaths = paths.filter(

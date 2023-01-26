@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./embla.css";
-import Autoplay from 'embla-carousel-autoplay'
-
+import Autoplay from "embla-carousel-autoplay";
 
 import useEmblaCarousel from "embla-carousel-react";
 import {
@@ -10,8 +9,10 @@ import {
   NextButton,
 } from "./EmblaCarouselArrowsDotsButtons";
 
-const Carousel = ({ slides,options }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options,[Autoplay({delay:4000})]);
+const Carousel = ({ slides, options, size }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+    Autoplay({ delay: 4000 }),
+  ]);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -47,7 +48,7 @@ const Carousel = ({ slides,options }) => {
 
   return (
     <>
-      <div className="embla">
+      <div className={`embla__${size}`}>
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
             {slides.map((image, index) => (
@@ -62,8 +63,8 @@ const Carousel = ({ slides,options }) => {
           </div>
         </div>
 
-        <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-        <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
+        <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} size={size} />
+        <NextButton onClick={scrollNext} enabled={nextBtnEnabled} size={size} />
         <div className="embla__dots">
           {scrollSnaps.map((_, index) => (
             <DotButton

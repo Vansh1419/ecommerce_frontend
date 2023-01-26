@@ -12,7 +12,7 @@ const images = [
 function Home() {
   return (
     <Box>
-      <Carousel slides={images} options={{ loop: true, draggable: true }} />
+      <Carousel slides={images} options={{ loop: true, draggable: true }} size="full"/>
       <Container maxWidth="xl"></Container>
     </Box>
   );
