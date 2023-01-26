@@ -13,11 +13,11 @@ export const DotButton = (props) => {
 };
 
 export const PrevButton = (props) => {
-  const { enabled, onClick } = props;
+  const { enabled, onClick ,size} = props;
 
   return (
     <button
-      className="embla__button embla__button--prev"
+      className={`embla__button embla__button--prev ${size}`}
       onClick={onClick}
       disabled={!enabled}
     >
@@ -32,11 +32,11 @@ export const PrevButton = (props) => {
 };
 
 export const NextButton = (props) => {
-  const { enabled, onClick } = props;
+  const { enabled, onClick,size } = props;
 
   return (
     <button
-      className="embla__button embla__button--next"
+      className={`embla__button embla__button--next ${size}`}
       onClick={onClick}
       disabled={!enabled}
     >

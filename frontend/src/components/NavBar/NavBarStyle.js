@@ -7,4 +7,5 @@ export const navStyle = () => ({
   height: 86,
   zIndex: 100,
   background: "white",
+  borderBottom: "1px solid #666666",
 });
