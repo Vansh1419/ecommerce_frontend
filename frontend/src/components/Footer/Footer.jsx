@@ -7,12 +7,12 @@ import EndCredit from "./FooterComponents/EndCredit/EndCredit";
 
 const Footer = () => {
   return (
-    <Box>
-      <Container maxWidth="xl">
+    <Box >
+      <Box maxWidth="1200px" margin="0 auto" >
         <ImportantLinks />
         <BrandLinks />
         <PaymentPartner />
-      </Container>
+      </Box>
       <EndCredit />
     </Box>
   );

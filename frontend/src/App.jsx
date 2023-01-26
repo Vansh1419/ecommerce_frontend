@@ -6,6 +6,7 @@ import BasicLayout from "./pages/BasicLayout";
 import Search from "./pages/Search/Search";
 import Error from "./pages/Error/Error";
 import Product from "./pages/Product/Product";
+import OrderHistory from "./pages/OrderHistory/OrderHistory";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="search" element={<Search />} />
           <Route path="product" element={<Product />} />
+          <Route path="orders" element={<OrderHistory />} />
         </Route>
         <Route path="not-found" element={<Error />} />
         <Route path="*" element={<Navigate to="/not-found" replace />} />

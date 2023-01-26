@@ -12,17 +12,28 @@ function BasicLayout() {
         disableAddress: true,
         disableAccount: true,
         disableForSearchPage: true,
-      }, 
+      },
     },
     {
-      pathName:"/product",
-      props:{}
-    }
+      pathName: "/product",
+      props: {},
+    },
+    {
+      pathName: "/orders",
+      props: {},
+    },
   ];
-  const footerNavigationPaths = [{ pathName: "/", props: {} },{
-    pathName:"/product",
-    props:{}
-  }];
+  const footerNavigationPaths = [
+    { pathName: "/", props: {} },
+    {
+      pathName: "/product",
+      props: {},
+    },
+    {
+      pathName: "/orders",
+      props: {},
+    },
+  ];
 
   const filterPath = (paths, Component) => {
     const filteredPaths = paths.filter(
