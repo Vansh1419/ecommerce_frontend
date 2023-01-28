@@ -21,6 +21,7 @@ const SearchBar = () => {
   };
   return (
     <TextField
+      autoFocus
       value={query}
       onChange={handleQueryChange}
       onKeyDown={handleEnter}

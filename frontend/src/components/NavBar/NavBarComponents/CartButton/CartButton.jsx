@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Button, Icon, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Button, Drawer, Icon, Typography } from "@mui/material";
 import { ArrowRight, ShoppingCartOutlined } from "@mui/icons-material";
 import { positioningCentreWithFlex } from "../../../common/styles/PositioningStyles";
 import {
@@ -8,20 +8,26 @@ import {
   iconSmallerScreen,
   iconLargerScreen,
 } from "./CartButtonstyle";
+import { Stack } from "@mui/system";
+import Checkout from "../../../Checkout/Checkout";
 
-const CartButton = ({disableForSearchPage}) => {
+const CartButton = ({ disableForSearchPage }) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const handleDrawerClose = () => {
+    setOpenDrawer(!openDrawer);
+  };
   return (
     <div>
       <Box
         sx={{
           ...positioningCentreWithFlex(),
-          ...cartContainerStyle(disableForSearchPage)
+          ...cartContainerStyle(disableForSearchPage),
         }}
-        >
+      >
         <Button
+          onClick={handleDrawerClose}
           sx={{
             ...cartButtonStyle(disableForSearchPage),
-            
           }}
         >
           <Icon
@@ -52,6 +58,7 @@ const CartButton = ({disableForSearchPage}) => {
             </Icon>
           </Box>
         </Button>
+        <Checkout openDrawer={openDrawer} handleDrawerClose={handleDrawerClose} anchor="right"/>
       </Box>
     </div>
   );
