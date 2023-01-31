@@ -22,6 +22,10 @@ function BasicLayout() {
       pathName: "/orders",
       props: {},
     },
+    {
+      pathName: "/account",
+      props: {},
+    },
   ];
   const footerNavigationPaths = [
     { pathName: "/", props: {} },
@@ -31,6 +35,10 @@ function BasicLayout() {
     },
     {
       pathName: "/orders",
+      props: {}, 
+    },
+    {
+      pathName: "/account",
       props: {},
     },
   ];

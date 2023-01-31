@@ -7,6 +7,7 @@ import Search from "./pages/Search/Search";
 import Error from "./pages/Error/Error";
 import Product from "./pages/Product/Product";
 import OrderHistory from "./pages/OrderHistory/OrderHistory";
+import Account from "./pages/Account/Account";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="search" element={<Search />} />
           <Route path="product" element={<Product />} />
           <Route path="orders" element={<OrderHistory />} />
+          <Route path="account" element={<Account/>} />
         </Route>
         <Route path="not-found" element={<Error />} />
         <Route path="*" element={<Navigate to="/not-found" replace />} />
