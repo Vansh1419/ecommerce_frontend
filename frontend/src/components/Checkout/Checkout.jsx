@@ -112,7 +112,7 @@ function Checkout({ openDrawer, handleDrawerClose, anchor }) {
             color="success"
             variant="contained"
           >
-            <Grid item direction="row" display="flex" alignItems="center">
+            <Grid item display="flex" alignItems="center">
               <Typography variant="subtitle2" fontWeight="bold">
                 7 items
               </Typography>
