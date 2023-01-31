@@ -23,8 +23,13 @@ const SignUp = () => {
         <FormGroup
           sx={{
             width: "30vw",
+            minHeight: "400px",
+            minWidth: "280px",
             padding: 2,
             borderRadius: 2,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly",
             border: "1px solid",
             borderColor: "#0c831f",
           }}
@@ -87,7 +92,7 @@ const SignUp = () => {
           </Button>
         </FormGroup>
       </form>
-      
+
     </Stack>
   );
 };
