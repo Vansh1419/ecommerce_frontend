@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import {
   Button,
   Stack,
@@ -8,17 +9,40 @@ import {
   Rating,
   TextField,
   Typography,
+  FormHelperText,
 } from "@mui/material";
-import React from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase/firebase.config";
+
 
 const LogIn = () => {
+  const navigate = useNavigate()
+  const [error, setError] = useState("")
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    const email = e.target[0].value
+    const password = e.target[2].value
+
+    if(password.length<8){
+      return setError("Password must be atleast 8 character long.")
+    }
+    setError("")
+    try{
+      const user = await signInWithEmailAndPassword(auth,email,password)
+      if(user) navigate("/")
+    }catch(error){
+      setError(error.message)
+    }
+  }
+
+
   return (
     <Stack alignItems="center" justifyContent="center" minHeight="60vh">
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("Submitted");
-        }}
+        onSubmit={handleSubmit}
       >
         <FormGroup
           sx={{
@@ -38,7 +62,6 @@ const LogIn = () => {
             Log In
           </Typography>
           <TextField
-            defaultValue="Hello World"
             required
             type="email"
             label="Email"
@@ -47,7 +70,6 @@ const LogIn = () => {
             }}
           />
           <TextField
-            defaultValue="Hello World"
             required
             type="password"
             label="Password"
@@ -70,6 +92,7 @@ const LogIn = () => {
           >
             Submit
           </Button>
+          {error && <FormHelperText error>{error}</FormHelperText>}
           <Stack direction="row" justifyContent="end">
             <Typography variant="subtitle1" fontWeight={300} color="#0c831f">
               Forgot Password?
