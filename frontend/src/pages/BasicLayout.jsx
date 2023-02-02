@@ -1,7 +1,7 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/NavBar/NavBar";
-
+import { auth } from "./../firebase/firebase.config";
 function BasicLayout() {
   const location = useLocation();
   const navbarNavigationPaths = [
@@ -35,7 +35,7 @@ function BasicLayout() {
     },
     {
       pathName: "/orders",
-      props: {}, 
+      props: {},
     },
     {
       pathName: "/account",
@@ -44,6 +44,7 @@ function BasicLayout() {
   ];
 
   const filterPath = (paths, Component) => {
+    if (!auth.currentUser) return <Navigate to="/account" />;
     const filteredPaths = paths.filter(
       ({ pathName }) => pathName == location.pathname
     );
@@ -51,6 +52,7 @@ function BasicLayout() {
       <Component {...filteredPaths[0].props} />
     ) : null;
   };
+
 
   return (
     <>
