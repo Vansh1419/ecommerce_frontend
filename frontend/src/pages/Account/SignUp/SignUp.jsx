@@ -1,25 +1,49 @@
 import {
   Button,
   Stack,
-  Checkbox,
-  FormControlLabel,
   FormGroup,
-  FormLabel,
-  Rating,
   TextField,
+  FormHelperText,
   Typography,
 } from "@mui/material";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase/firebase.config";
+import { registerUser } from "./../../../firebase/firebase.api";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const name = e.target[0].value;
+    const email = e.target[2].value;
+    const password = e.target[4].value;
+    const confirmPassword = e.target[6].value;
+
+    if (password.length < 8) {
+      return setError("Password must be atleast 8 character long.");
+    }
+    if (password !== confirmPassword)
+      return setError("Password and confirm password are not same.");
+
+    setError("");
+    try {
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      await registerUser(user.user.uid, { email, name });
+      navigate("/");
+      if (storedUser) return navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <Stack alignItems="center" justifyContent="center" minHeight="60vh">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("Submitted");
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <FormGroup
           sx={{
             width: "30vw",
@@ -38,7 +62,6 @@ const SignUp = () => {
             Sign Up
           </Typography>
           <TextField
-            defaultValue="Hello World"
             required
             type="text"
             label="Name"
@@ -50,7 +73,6 @@ const SignUp = () => {
             }}
           />
           <TextField
-            defaultValue="Hello World"
             required
             type="email"
             label="Email"
@@ -59,7 +81,6 @@ const SignUp = () => {
             }}
           />
           <TextField
-            defaultValue="Hello World"
             required
             type="password"
             label="Password"
@@ -68,7 +89,6 @@ const SignUp = () => {
             }}
           />
           <TextField
-            defaultValue="Hello World"
             required
             type="password"
             label="Confirm password"
@@ -90,9 +110,9 @@ const SignUp = () => {
           >
             Submit
           </Button>
+          {error && <FormHelperText error>{error}</FormHelperText>}
         </FormGroup>
       </form>
-
     </Stack>
   );
 };

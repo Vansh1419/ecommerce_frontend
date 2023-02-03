@@ -25,8 +25,8 @@ function App() {
           <Route path="search" element={<Search />} />
           <Route path="product" element={<Product />} />
           <Route path="orders" element={<OrderHistory />} />
-          <Route path="account" element={<Account/>} />
         </Route>
+        <Route path="account" element={<Account/>} />
         <Route path="not-found" element={<Error />} />
         <Route path="*" element={<Navigate to="/not-found" replace />} />
       </Routes>
