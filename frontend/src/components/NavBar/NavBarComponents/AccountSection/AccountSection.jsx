@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { KeyboardArrowDown, PersonOutlineOutlined } from "@mui/icons-material";
 import Dropdown from "../../../common/Dropdown/Dropdown";
@@ -9,15 +9,24 @@ import {
 } from "./AccountSectionStyle";
 import { auth } from "../../../../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 
 const AccountSection = ({ disableAccount }) => {
+  const [user,setUser ] = useState(null)
   const navigate = useNavigate()
+
   const handleSignOut = () => {
     auth.signOut();
     navigate("/account")
   };
 
-  if (auth.currentUser)
+  useEffect(()=>{
+    onAuthStateChanged(auth, (currentUser)=>{
+      setUser(currentUser)
+    })
+  },[user])
+
+  if (user)
     return (
       <Stack alignItems="center" justifyContent="center">
         <IconButton variant="outlined" onClick={handleSignOut}>
